@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+
 
 public class Gr {
     @javax.persistence.Id
