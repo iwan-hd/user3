@@ -20,7 +20,7 @@ public class PartNumberController {
     @Autowired
     PartNumberService partNumberService;
 
-    @GetMapping("/partnumbers")
+    @GetMapping("/partnumber")
     public HashMap<String,Object> getAllPartNumber(){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add( "Accept","application/json");

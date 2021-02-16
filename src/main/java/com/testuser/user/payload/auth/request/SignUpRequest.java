@@ -16,8 +16,12 @@ public class SignUpRequest {
 
     @NotBlank
     @Size(max=50)
-    @Email
-    private String email;
+    private String nama;
+
+    @NotBlank
+    private String createdAt;
+
+    private String foto;
 
     private Set<String> role;
 
@@ -37,6 +41,14 @@ public class SignUpRequest {
         this.username = username;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -45,12 +57,21 @@ public class SignUpRequest {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+
+    public String getNama() {
+        return nama;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
@@ -58,8 +79,10 @@ public class SignUpRequest {
         return "SignUpRequest{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
+                ", nama='" + nama + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", foto='" + foto + '\'' +
+                ", role=" + role +
                 '}';
     }
-
 }

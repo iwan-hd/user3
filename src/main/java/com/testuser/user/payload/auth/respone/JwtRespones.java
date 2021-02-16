@@ -7,15 +7,19 @@ public class JwtRespones {
     private String type = "Bearer";
     private Long id;
     private String username;
-    private String email;
+    private String nama;
+    private String foto;
+    private String createdAt;
     private List<String> roles;
 
 
-    public JwtRespones(String token, Long id, String username, String email, List<String> roles) {
+    public JwtRespones(String token, Long id, String username, String nama, String foto,String createdAt,List<String> roles) {
         this.token = token;
         this.id = id;
         this.username = username;
-        this.email = email;
+        this.nama = nama;
+        this.foto = foto;
+        this.createdAt = createdAt;
         this.roles = roles;
     }
 
@@ -55,12 +59,28 @@ public class JwtRespones {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public String getNama() {
+        return nama;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
     public List<String> getRoles() {
