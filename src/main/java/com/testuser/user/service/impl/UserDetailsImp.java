@@ -44,9 +44,9 @@ public class UserDetailsImp implements UserDetails {
                 user.getId(),
                 user.getUserName(),
                 user.getNama(),
+                user.getPassword(),
                 user.getCreatedAt(),
                 user.getFoto(),
-                user.getPassword(),
                 authorities
         );
     }

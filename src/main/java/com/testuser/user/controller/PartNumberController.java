@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,7 +21,9 @@ public class PartNumberController {
     @Autowired
     PartNumberService partNumberService;
 
+
     @GetMapping("/partnumber")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_PN')")
     public HashMap<String,Object> getAllPartNumber(){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add( "Accept","application/json");
@@ -41,6 +44,7 @@ public class PartNumberController {
 
     // find by id PartNumber
     @GetMapping("/partnumber/{Id}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_PN')")
     public HashMap<String,Object>  getPartNumberById(@PathVariable Long Id ) throws Exception {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Accept", "application/json");
@@ -66,6 +70,8 @@ public class PartNumberController {
 
     // Cara Ke dua: data baru di Save saja
     @PostMapping("/partnumber")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_PN')")
+
     public HashMap<String, Object> savePartNumber(@Valid @RequestBody PartNumber partnumber){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Accept", "application/json");
@@ -84,6 +90,7 @@ public class PartNumberController {
 
 
     @PutMapping("/partnumber/{Id}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_PN')")
     public HashMap<String, Object>  updatePartNumber(@PathVariable Long Id, @Valid @RequestBody PartNumber detailPartNumber){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Accept", "application/json");
@@ -104,6 +111,7 @@ public class PartNumberController {
 
 
     @DeleteMapping("/partnumber/{Id}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_PN')")
     public HashMap<String , Object> deletePartNumber(@PathVariable Long Id){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Accept", "application/json");

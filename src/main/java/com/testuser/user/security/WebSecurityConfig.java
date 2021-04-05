@@ -35,9 +35,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new AuthTokenFilter();
     }
 
+    //Fungsi Login
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(usersDetailsSrv).passwordEncoder(passwordEncoder());
+       // auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("123456")).roles("USER");
     }
 
     @Bean

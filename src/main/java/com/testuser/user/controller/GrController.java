@@ -6,6 +6,7 @@ import com.testuser.user.service.GrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,6 +22,8 @@ public class GrController {
     GrService grService;
 
     @GetMapping("/gr")
+    //@PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_GR')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER_GR')")
     public HashMap<String, Object> getAllGr() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Accept", "application/json");
