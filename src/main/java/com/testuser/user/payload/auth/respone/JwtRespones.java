@@ -11,9 +11,9 @@ public class JwtRespones {
     private String foto;
     private String createdAt;
     private List<String> roles;
+    private String createdBy;
 
-
-    public JwtRespones(String token, Long id, String username, String nama, String foto,String createdAt,List<String> roles) {
+    public JwtRespones(String token, Long id, String username, String nama, String foto,String createdAt,List<String> roles, String createdBy) {
         this.token = token;
         this.id = id;
         this.username = username;
@@ -21,6 +21,7 @@ public class JwtRespones {
         this.foto = foto;
         this.createdAt = createdAt;
         this.roles = roles;
+        this.createdBy=createdBy;
     }
 
     public JwtRespones() {
@@ -89,5 +90,13 @@ public class JwtRespones {
 
     public void setRoles(List<String> roles) {
         this.roles = roles;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 }

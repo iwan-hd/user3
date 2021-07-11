@@ -32,7 +32,17 @@ public class GrSub {
 
     @Column(nullable=false , columnDefinition =  "double default 0")
     private Double Amount;      // Qty* unitPrice
-
+//
+//    public GrSub() {
+//    }
+//    parameter di sini...harus sama dengan yg di Postman
+//    public GrSub(long id, int idGr, int idPn, double qty, double unitPrice, double amount) {
+//        this.IdGr = idGr;
+//        this.IdPn = idPn;
+//        this.Qty = qty;
+//        this.UnitPrice = unitPrice;
+//        this.Amount = amount;
+//    }
 
     public Long getId() {
         return Id;
@@ -84,14 +94,24 @@ public class GrSub {
 
     @Override
     public String toString() {
-        return "GrSub{" +
-                "Id=" + Id +
-                ", IdGr=" + IdGr +
-                ", IdPn=" + IdPn +
-                ", Qty=" + Qty +
-                ", UnitPrice=" + UnitPrice +
-                ", Amount=" + Amount +
-                '}';
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.valueOf(Id));
+        builder.append(", ");
+        builder.append(IdGr);
+        builder.append(", ");
+        builder.append(IdPn);
+        builder.append(", ");
+        builder.append(Qty);
+        builder.append(", ");
+        builder.append(UnitPrice);
+        builder.append(", ");
+        builder.append(Amount);
+
+        return builder.toString();
+
     }
+
+
 }
 

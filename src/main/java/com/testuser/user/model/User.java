@@ -39,9 +39,14 @@ public class User {
     @Column(nullable = false)
     private String createdAt;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
+    private String createdBy;
+
+    @Column(nullable = true)
     @Size(max = 100)
     private String password;
+
+
 
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -59,12 +64,13 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String nama, String foto, String createdAt,String password) {
+    public User(String username, String nama, String foto, String createdAt,String password, String createdBy) {
         this.username = username;
         this.nama = nama;
         this.foto = foto;
         this.createdAt = createdAt;
         this.password = password;
+        this.createdBy = createdBy;
     }
 
     public Long getId() {
@@ -121,6 +127,14 @@ public class User {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     @Override

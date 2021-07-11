@@ -73,7 +73,10 @@ public class AuthController {
                         usersDetails.getNama(),
                         usersDetails.getFoto(),
                         usersDetails.getCreatedAt(),
-                        roles));
+                        roles,
+                        usersDetails.getCreatedBy()
+
+                        ));
     }
 
 
@@ -89,11 +92,14 @@ public class AuthController {
 //        }
 
         //create user ( kalau gak roles default ROLE_USER)
-        User user = new User(signUpRequest.getUsername(),
+        User user;
+        user = new User(signUpRequest.getUsername(),
                 signUpRequest.getNama(),
                 signUpRequest.getFoto(),
                 signUpRequest.getCreatedAt(),
-                encoder.encode(signUpRequest.getPassword()));
+                encoder.encode(signUpRequest.getPassword()),
+                signUpRequest.getCreatedBy()
+                );
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
 

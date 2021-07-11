@@ -19,21 +19,25 @@ public class UserDetailsImp implements UserDetails {
     private String username;
     private  String nama;
     private String createdAt;
+    private String createdBy;
     private  String foto;
     @JsonIgnore
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImp(Long id, String username, String nama, String password,String createdAt,String foto,
-                          Collection<? extends GrantedAuthority> authorities) {
+                          Collection<? extends GrantedAuthority> authorities,String createdBy) {
         Id = id;
         this.username = username;
         this.nama = nama;
         this.createdAt= createdAt;
+        this.createdBy= createdBy;
         this.foto= foto;
         this.password = password;
         this.authorities = authorities;
     }
+
+
 
     public static UserDetailsImp build(User user){
         List<GrantedAuthority> authorities = user.getRoles().stream()
@@ -47,7 +51,9 @@ public class UserDetailsImp implements UserDetails {
                 user.getPassword(),
                 user.getCreatedAt(),
                 user.getFoto(),
-                authorities
+                authorities,
+                user.getCreatedBy()
+
         );
     }
 
@@ -67,6 +73,13 @@ public class UserDetailsImp implements UserDetails {
     public String getCreatedAt() { return createdAt; }
     public String getFoto() { return foto; }
 
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 
     @Override
     public String getPassword() {

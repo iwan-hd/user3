@@ -21,6 +21,9 @@ public class SignUpRequest {
     @NotBlank
     private String createdAt;
 
+    @NotBlank
+    private  String createdBy;
+
     private String foto;
 
     private Set<String> role;
@@ -57,6 +60,13 @@ public class SignUpRequest {
         this.password = password;
     }
 
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 
     public String getNama() {
         return nama;
@@ -81,6 +91,7 @@ public class SignUpRequest {
                 ", password='" + password + '\'' +
                 ", nama='" + nama + '\'' +
                 ", createdAt='" + createdAt + '\'' +
+                ", createdBy='" + createdBy + '\'' +
                 ", foto='" + foto + '\'' +
                 ", role=" + role +
                 '}';

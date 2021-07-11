@@ -15,8 +15,7 @@ import java.util.List;
 
 @RestController                                //buat jadi API bisa di akses Postman
 @RequestMapping("api/v1")                      //buat API folder api/v1/*
-@CrossOrigin(origins="*",allowedHeaders = "*") //beda url bisa diakses atau port beda bisa diakses waktu beda server
-
+@CrossOrigin(origins = "http://localhost:3000",allowedHeaders = "*") //beda url bisa diakses atau port beda bisa diakses waktu beda server
 public class PartNumberController {
     @Autowired
     PartNumberService partNumberService;
@@ -69,10 +68,11 @@ public class PartNumberController {
 //    }
 
     // Cara Ke dua: data baru di Save saja
-    @PostMapping("/partnumber")
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_PN')")
 
+    //@PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('USER_PN')")
+   @PostMapping("/partnumber")
     public HashMap<String, Object> savePartNumber(@Valid @RequestBody PartNumber partnumber){
+
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Accept", "application/json");
         httpHeaders.add("Content-Type", "application/json");
@@ -85,6 +85,7 @@ public class PartNumberController {
             map.put("status", 200);//200=OK
             map.put("datatabel", ResponseEntity.ok().headers(httpHeaders).body(partnumber1));
         }
+
         return map;
     }
 

@@ -50,12 +50,21 @@ public class PartNumber {
         this.partName = partName;
     }
 
+    public Double getStock() {
+        return stock;
+    }
+
+    public void setStock(Double stock) {
+        this.stock = stock;
+    }
+
     @Override
     public String toString() {
         return "PartNumber{" +
                 "Id=" + Id +
                 ", partCode='" + partCode + '\'' +
                 ", partName='" + partName + '\'' +
+                ", stock='" + stock + '\'' +
                 '}';
     }
 }

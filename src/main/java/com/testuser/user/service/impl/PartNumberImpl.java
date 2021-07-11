@@ -39,6 +39,7 @@ public class PartNumberImpl implements PartNumberService {
         PartNumber partNumber1 = partNumberRepository.findById(Id).get();
         partNumber1.setPartCode(partnumber.getPartCode());
         partNumber1.setPartName(partnumber.getPartName());
+        partNumber1.setStock(partnumber.getStock());
         PartNumber updatePartNumber = partNumberRepository.save(partNumber1);
         return updatePartNumber;
     }
