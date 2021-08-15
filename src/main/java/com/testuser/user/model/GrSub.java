@@ -22,7 +22,7 @@ public class GrSub {
     private int IdGr;          // ref ke GR id
 
     @Column(nullable=false)
-    private Integer IdPn;       // ref ke PartNumber Id
+    private String IdPn;       // ref ke PartNumber Id
 
     @Column(nullable=false , columnDefinition =  "double default 0")
     private Double Qty;
@@ -60,11 +60,11 @@ public class GrSub {
         IdGr = idGr;
     }
 
-    public Integer getIdPn() {
+    public String getIdPn() {
         return IdPn;
     }
 
-    public void setIdPn(Integer idPn) {
+    public void setIdPn(String idPn) {
         IdPn = idPn;
     }
 
